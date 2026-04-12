@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bhavin Weds Vimeesha</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #333;
+        background: linear-gradient(#fff7f0, #ffe4d6);
+      }
+
+      /* COMMON HEADINGS */
+      h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 34px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #8b5e3c;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 93vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        background: url("asset/header-image.jpg") center/cover no-repeat;
+        position: relative;
+        padding-top: 100px;
+        z-index: 1;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 240, 230, 0.55);
+
+        padding-top: 85px;
+        z-index: 0;
+      }
+
+      /* NAMES */
+      .names {
+        font-family: "Great Vibes", cursive;
+        font-size: 68px;
+        font-weight: bold;
+        color: #6d3b2c;
+        z-index: 1;
+      }
+
+      /* SUBTEXT */
+      .subtext {
+        font-family: "Great Vibes", cursive;
+        font-size: 24px;
+        margin-top: 10px;
+        color: #5a3a2e;
+        z-index: 1;
+      }
+
+      /* DATE */
+      .date {
+        font-family: "Garamond", serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-top: 10px;
+        color: #3e2a22;
+        z-index: 1;
+      }
+
+      /* VIDEO SECTION */
+      .video-section {
+        width: 100%;
+        min-height: 50vh;
+        overflow: hidden;
+        margin-top: 50px;
+      }
+      .video-section video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* MOBILE VIDEO FIX */
+      @media (max-width: 768px) {
+        .video-section {
+          min-height: 40vh;
+        }
+        .video-section video {
+          height: auto;
+        }
+      }
+
+      /* STORY */
+      .section {
+        padding: 80px 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      .story p {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.8s;
+        margin: 15px 0;
+      }
+      .story p.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .story p {
+        transition: 1.3s; /* slower = more emotional */
+      }
+      /* 🎬 STORY TEXT ANIMATION */
+      .story p {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        transition: 1.2s ease;
+        margin: 18px 0;
+        text-align: center;
+      }
+
+      /* ACTIVE STATE */
+      .story p.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* ✨ SOFT GOLD GLOW */
+      .story p {
+        text-shadow: 0 0 0px rgba(212, 175, 55, 0);
+      }
+
+      .story p.show {
+        text-shadow:
+          0 0 8px rgba(212, 175, 55, 0.4),
+          0 0 16px rgba(212, 175, 55, 0.2);
+      }
+
+      .quote {
+        font-style: italic;
+        font-size: 20px;
+        color: #8b5e3c;
+        text-align: center;
+        margin: 30px 0;
+
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 1.5s ease;
+      }
+
+      /* Glow effect */
+      .quote.show {
+        opacity: 1;
+        transform: translateY(0);
+
+        text-shadow:
+          0 0 10px rgba(212, 175, 55, 0.5),
+          0 0 25px rgba(212, 175, 55, 0.3);
+      }
+
+      /* PARTICLE CONTAINER */
+      .particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* PARTICLES */
+      .particles span {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #d4af37;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: floatUp linear infinite;
+      }
+
+      /* ANIMATION */
+      @keyframes floatUp {
+        from {
+          transform: translateY(100vh) scale(0.5);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.6;
+        }
+        to {
+          transform: translateY(-10vh) scale(1);
+          opacity: 0;
+        }
+      }
+      /* TIMELINE */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .timeline-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      .timeline-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 15px;
+        width: 50%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.8s;
+        position: relative;
+      }
+      .timeline-card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ICON BEHIND EVENT */
+      .timeline-card h3 {
+        position: relative;
+      }
+      .timeline-card h3::before {
+        content: "★"; /* you can replace with SVG or emoji per event */
+        position: absolute;
+        top: 50%;
+        left: -50px;
+        transform: translateY(-50%);
+        font-size: 40px;
+        opacity: 0.1;
+      }
+
+      /* TIMELINE DOT */
+      .timeline-dot {
+        width: 20px;
+        height: 20px;
+        background: #d4af37;
+        border-radius: 50%;
+      }
+
+      /* PINTEREST GALLERY */
+      .gallery {
+        column-count: 3;
+        column-gap: 15px;
+      }
+      .gallery img {
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        transform: rotate(-1deg);
+        transition: 0.3s;
+      }
+      .gallery img:hover {
+        transform: scale(1.05) rotate(0);
+      }
+
+      /* MAP */
+      .map iframe {
+        width: 100%;
+        height: 300px;
+        border-radius: 12px;
+      }
+
+      /* BUTTON */
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #d4af37;
+        color: #000;
+        border-radius: 25px;
+        text-decoration: none;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 700px) {
+        .timeline-card {
+          width: 100%;
+        }
+        .timeline-item {
+          flex-direction: column !important;
+        }
+        .names {
+          font-size: 42px;
+        }
+        .subtext {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 700px) {
+        .hero {
+          min-height: 85vh;
+        }
+      }
+
+      /* IMAGE WRAPPER */
+      .img-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      /* WATERMARK TEXT */
+      .img-wrap::after {
+        content: "Bhavin ❤️ Vimeesha";
+        position: absolute;
+        bottom: 15px;
+        right: 10px;
+        font-size: 14px;
+        font-family: "Great Vibes", cursive;
+        color: rgba(255, 255, 255, 0.6);
+        pointer-events: none;
+      }
+
+      /* IMAGE STYLE */
+      .img-wrap img {
+        width: 100%;
+        display: block;
+        border-radius: 12px;
+      }
+
+      /* AUDIO */
+
+      .music-btn {
+        position: fixed;
+        bottom: 58px;
+        right: 20px;
+        background: #d4af37;
+        color: #000;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+      }
+      .music-btn::after {
+        bottom: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===================== AUDIO PLAYER ===================== -->
+    <audio id="bgMusic" loop>
+      <source src="asset/Tum Ho Toh Saiyaara.mp3" type="audio/mpeg" />
+    </audio>
+    <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
+      🎵 Play Music
+    </button>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero">
+      <div class="names">Bhavin ❤️ Vimeesha</div>
+      <div class="subtext">are getting married</div>
+      <div class="subtext">on</div>
+      <div class="date">21 APRIL 2026</div>
+    </section>
+
+    <!-- ===================== VIDEO SECTION ===================== -->
+    <section class="video-section">
+      <video muted loop id="weddingVideo">
+        <source src="asset/Video Project.mp4" type="video/mp4" />
+      </video>
+    </section>
+
+    <!-- ===================== STORY SECTION ===================== -->
+    <section class="section story">
+      <div class="particles"></div>
+      <h2>Our Story</h2>
+
+      <!-- ✨ Opening Quote -->
+      <p class="quote">
+        "Some stories are written by destiny… ours was simply waiting to be
+        felt."
+      </p>
+
+      <!-- 💛 Story Flow -->
+      <p>Bound by family, our paths were always close…</p>
+
+      <p>
+        Growing up around each other, life quietly wove our moments together.
+      </p>
+      <p>
+        Two shy souls, finding comfort in the simplest conversations, where even
+        silence felt meaningful.
+      </p>
+      <p>
+        What once felt familiar slowly turned into something beautifully
+        special.
+      </p>
+      <p>
+        And today, it feels like we were always meant to walk this journey
+        together.
+      </p>
+
+      <p>With love, with faith, and with our families beside us…</p>
+
+      <p>Two hearts. One journey. And a lifetime to go. ❤️</p>
+
+      <!-- ✨ Closing Quote -->
+      <p class="quote">
+        "Not every love story begins with words… some begin with understanding,
+        and grow into forever."
+      </p>
+    </section>
+
+    <!-- ===================== EVENTS TIMELINE ===================== -->
+    <section class="section timeline-animated">
+      <h2>Events</h2>
+      <div class="timeline">
+        <!-- Haldi Event -->
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <h3>Haldi 🔫</h3>
+            <p>20 April 2026</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <!-- Mehendi Event -->
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <h3>Mehendi 🌿</h3>
+            <p>20 April 2026</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <!-- Sangeet Event -->
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <h3>Sangeet 🎶</h3>
+            <p>20 April 2026</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <!-- Wedding Event -->
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <h3>Wedding 💍💗🪢🎉</h3>
+            <p>21 April 2026</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY SECTION ===================== -->
+    <section class="section">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <div class="img-wrap"><img src="asset/couples-1.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-3.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-4.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-5.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-6.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-7.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-8.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-9.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-10.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-2.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-11.jpg" /></div>
+        <div class="img-wrap"><img src="asset/couples-12.jpg" /></div>
+      </div>
+    </section>
+
+    <!-- ===================== VENUE MAP SECTION ===================== -->
+    <section class="section map">
+      <h2>Venue</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417870.0671090703!2d71.3269721!3d22.415882550000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959051f5f0ef795%3A0x861bd887ed54522e!2sGujarat!5e1!3m2!1sen!2sin!4v1775740818684!5m2!1sen!2sin"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+
+    <!-- ===================== DOWNLOAD INVITATION ===================== -->
+    <section class="section" style="text-align: center">
+      <a href="asset/invite.pdf" class="btn">Download Invitation</a>
+    </section>
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+      // STORY & TIMELINE ANIMATION
+      const storyText = document.querySelectorAll(".story p");
+      const timelineCards = document.querySelectorAll(".timeline-card");
+
+      window.addEventListener("scroll", () => {
+        storyText.forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+            el.classList.add("show");
+          }
+        });
+        timelineCards.forEach((card) => {
+          if (card.getBoundingClientRect().top < window.innerHeight - 80) {
+            card.classList.add("show");
+          }
+        });
+      });
+
+      // VIDEO PLAY ON SCROLL
+      const video = document.getElementById("weddingVideo");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.5 },
+      ); // triggers when 50% of video is visible
+      observer.observe(video);
+
+      // AUDIO PLAYER
+      const music = document.getElementById("bgMusic");
+      const btn = document.getElementById("musicBtn");
+      function toggleMusic() {
+        if (music.paused) {
+          music.play();
+          btn.innerText = "⏸ Pause Music";
+        } else {
+          music.pause();
+          btn.innerText = "🎵 Play Music";
+        }
+      }
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+      const storyLines = document.querySelectorAll(".story p");
+
+      window.addEventListener("scroll", () => {
+        storyLines.forEach((el, index) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+            setTimeout(() => {
+              el.classList.add("show");
+            }, index * 300); // delay per line
+          }
+        });
+      });
+      const quotes = document.querySelectorAll(".quote");
+
+      window.addEventListener("scroll", () => {
+        quotes.forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+            el.classList.add("show");
+          }
+        });
+      });
+      const particlesContainer = document.querySelector(".particles");
+
+      for (let i = 0; i < 25; i++) {
+        let span = document.createElement("span");
+
+        span.style.left = Math.random() * 100 + "%";
+        span.style.animationDuration = 5 + Math.random() * 5 + "s";
+        span.style.animationDelay = Math.random() * 5 + "s";
+
+        particlesContainer.appendChild(span);
+      }
+    </script>
+  </body>
+</html>
