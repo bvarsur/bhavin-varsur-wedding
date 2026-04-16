@@ -44,7 +44,7 @@
         align-items: center;
         flex-direction: column;
         text-align: center;
-        background: url("asset/header-image.jpg") center/cover no-repeat;
+        background: url("asset/header-image-2.jpg") center/cover no-repeat;
         position: relative;
         padding-top: 100px;
         z-index: 1;
@@ -53,7 +53,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(255, 240, 230, 0.55);
+        background:rgb(141 122 64 / 30%);
 
         padding-top: 85px;
         z-index: 0;
@@ -346,6 +346,23 @@
         width: 100%;
         display: block;
         border-radius: 12px;
+      }
+
+      /* iPhone SE (1st/2nd/3rd gen) specific hero responsiveness */
+      @media (max-width: 380px) {
+        .hero {
+          padding-top: 75px;
+          min-height: 70vh;
+        }
+        .names {
+          font-size: 32px;
+        }
+        .subtext {
+          font-size: 16px;
+        }
+        .date {
+          font-size: 15px;
+        }
       }
 
       /* AUDIO */
